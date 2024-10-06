@@ -11,7 +11,7 @@ on:
   workflow_dispatch:   # this mean the workflow will be executed by you manually
 jobs:
   job1:   # this is job name 
-    runs-on: ubuntu-latest   # give the name of OS runner where the job will be executed
+    runs-on: runner1   # give the name of OS runner where the job will be executed
     steps:
      - name: Run a single command 
        run: echo hello World! 
@@ -20,12 +20,12 @@ jobs:
          echo hello to github 
          echo test
   job2:
-    runs-on: ubuntu-latest
+    runs-on: runner1
     needs: job1
     steps:
      - uses: actions/checkout@v4  # it will clone the current repo on the ubuntu runner
   job3: 
-    runs-on: ubuntu-latest
+    runs-on: runner1
     steps:
      - name: Execute set of commands
        run: |
